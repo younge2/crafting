@@ -1,11 +1,18 @@
+<% if (typeof alerts !== 'undefined') { %>
+  <% for (key in alerts) { %>
+    <% alerts[key].forEach(function(thisMsg) { %>
+      <div class="alert alert-<%= key %>"><%= thisMsg %></div>
+    <% }); %>
+  <% } %>
+<% } %>
 <h1>Sign up </h1>
 
 <form method="POST" id="signUp">
 	<label>Username: </label>
 	<input name="potUsername" type="text" />
 	<label>Password: </label>
-	<input name="potPassword" type="text" />
+	<input name="potPassword" type="password" />
 	<label>Confirm Password: </label>
-	<input name="potPassword2" type="text" />
+	<input name="potPassword2" type="password" />
 	<button id="signupSub" type="submit">Sign Up </button>
 </form>
