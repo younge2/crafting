@@ -1,0 +1,9 @@
+get sign in
+	encrypkt
+get collection
+get decks
+get deckmaker
+get tocraft
+post sign in
+post collection
+post deckmaker

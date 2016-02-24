@@ -1,0 +1,30 @@
+{
+  "name": "crafting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/younge2/crafting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/younge2/crafting/issues"
+  },
+  "homepage": "https://github.com/younge2/crafting#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-ejs-layouts": "^2.0.0",
+    "pg": "^4.4.6",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.19.3",
+    "unirest": "^0.4.2"
+  },
+  "devDependencies": {}
+}
