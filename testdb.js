@@ -122,7 +122,7 @@ var unirest = require('unirest');
 
 // //populates card table with collectibles + heroes
 // unirest.get("https://omgvamp-hearthstone-v1.p.mashape.com/cards")
-// .header("X-Mashape-Key", MASHAPE_HS_KEY)
+// .header("X-Mashape-Key", process.env.MASHAPE_HS_KEY)
 // .end(function (result) {
 //   //console.log(result.status, result.headers, result.body);
 //  	for (setKey in result.body){
@@ -131,7 +131,10 @@ var unirest = require('unirest');
 //  			//console.log(result.body[key][set].name);
 //  			if (card.collectible){
 //  				db.card.findOrCreate({
-// 		  			where: {name: card.name},
+// 		  			where: {
+// 		  				name: card.name
+		  				
+// 		  			},
 // 		  			defaults: {
 // 		  				cardId: card.cardId,
 // 		  				class: card.playerClass,
@@ -155,7 +158,7 @@ var unirest = require('unirest');
 
 //searches for a specific card
 // unirest.get("https://omgvamp-hearthstone-v1.p.mashape.com/cards/search/archmage")
-// .header("X-Mashape-Key", MASHAPE_HS_KEY)
+// .header("X-Mashape-Key", process.env.MASHAPE_HS_KEY)
 // .end(function (result) {
 //   //console.log(result.status, result.headers, result.body);
 //   result.body.forEach(function(card){
