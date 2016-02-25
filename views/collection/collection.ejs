@@ -1,8 +1,32 @@
 <h1>Collection</h1>
-<% var count=0;%>
-<% cards.forEach(function(card, index){ %>
-<% count ++;%>
-<p><%= card.name%> </p>
+<% var count=cards.length;%>
 
 
-<%});%>
+<div>
+<h2>Add Cards</h2>
+	<% cardArr.forEach(function(card, index){ %>
+	
+	<p><%= card.name%>
+	<form method="POST" action="/collection">
+	<input name="cardName" type="hidden" value="<%= card.name%>"/>
+	<button type="submit">Add to collection</button>
+	</form>
+	 </p>
+
+
+	<%});%>
+</div>
+
+
+
+<div>
+<h2>Have Cards</h2>
+ <% cards.forEach(function(card, index){ %>
+ 	
+ 
+ 
+<p><%= card.dataValues.name%>  <%= card.usersCards.dataValues.counter%></p> 
+
+
+ <%});%>
+ </div>

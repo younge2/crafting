@@ -1,29 +1,128 @@
 var db = require("./models");
 var unirest = require('unirest');
 
-db.user.findOrCreate({
-	where:{
-		username: "admin@geth.doom"
-	},
-	defaults: {
-		password: "maltodextrin"
-	}
-}).spread(function(user,created) {
-	//console.log(user.get());
-	console.log(created);
-});
 
-db.user.findOne({
-	where: {
-		username: "admin@geth.doom"
-	}
-}).then(function(user) {
-	console.log(user.get());
-})
 
-//populates card table with collectibles + heroes
+// //adds basic card set to join table
+// db.user.findOne({
+// 	where: {
+// 		username: "Solheim"
+// 	}
+// }).then(function(user) {
+// 	console.log(user);
+// 	db.card.findAll({
+// 		where:{
+// 			set: "Basic"
+// 		}
+// 	}).then(function(cards){
+// 		//console.log(cards);
+// 		cards.forEach(function(card,index){
+// 			user.addCard(card, {counter: 0}).then(function(wat){	
+// 					db.usersCards.find({
+// 					where:{
+// 						userId:user.id,
+// 						cardId: card.id
+// 					}
+// 					}).then(function(joined){
+// 						joined.increment({counter: 2});
+// 						console.log("COUNTER!!!!: "+joined.counter);
+// 					});
+// 			});
+			
+// 		});
+		
+
+// 	});
+	
+// });
+
+
+
+
+
+
+
+
+// //adds a card to the join table.
+// db.user.findOne({
+// 	where: {
+// 		username: "Solheim"
+// 	}
+// }).then(function(user) {
+// 	console.log(user);
+// 	db.card.findOne({
+// 		where:{
+// 			name: "Voidwalker"
+// 		}
+// 	}).then(function(card){
+// 		console.log(card);
+// 		user.addCard(card);
+// 		db.usersCards.find({
+// 			where:{
+// 				userId:user.id,
+// 				cardId: card.id
+// 			}
+// 		}).then(function(joined){
+// 			joined.increment('counter');
+// 			console.log("COUNTER!!!!: "+joined.counter);
+// 		});
+
+// 	});
+	
+// });
+
+
+
+// for(var i=0; i<2; i++){
+// db.usersCards.create({
+// 	  		userId: 6,
+// 	  		cardId: 5
+// 	  	}).then(function(){
+// 	  		//console.log(card.name);
+// 	  	});
+// }
+
+// db.card.all().then(function(cards) {
+//   // cards will be an array of all card instances
+//   cards.forEach(function(card, index){
+//   	for(var i=0; i<2; i++){
+// 	  	db.usersCards.create({
+// 	  		userId: 6,
+// 	  		cardId: card.id
+// 	  	}).then(function(){
+// 	  		//console.log(card.name);
+// 	  	});
+//   	}
+  	
+//   });
+// });
+
+
+
+//test adding users
+// db.user.findOrCreate({
+// 	where:{
+// 		username: "admin@geth.doom"
+// 	},
+// 	defaults: {
+// 		password: "maltodextrin"
+// 	}
+// }).spread(function(user,created) {
+// 	//console.log(user.get());
+// 	console.log(created);
+// });
+
+// db.user.findOne({
+// 	where: {
+// 		username: "admin@geth.doom"
+// 	}
+// }).then(function(user) {
+// 	console.log(user.get());
+// })
+
+// //populates card table with collectibles + heroes
 // unirest.get("https://omgvamp-hearthstone-v1.p.mashape.com/cards")
-// .header("X-Mashape-Key", "BYlN83YoMomshn1SwxA3vyZgQFJWp1PjsTTjsnNHH65lRXohE4")
+// .header("X-Mashape-Key", MASHAPE_HS_KEY)
 // .end(function (result) {
 //   //console.log(result.status, result.headers, result.body);
 //  	for (setKey in result.body){
@@ -36,7 +135,9 @@ db.user.findOne({
 // 		  			defaults: {
 // 		  				cardId: card.cardId,
 // 		  				class: card.playerClass,
-// 		  				rarity: card.rarity
+// 		  				rarity: card.rarity,
+// 		  				set: card.cardSet,
+// 		  				cost: card.cost
 // 		  			}
 // 		  		}).spread(function(card, created) {
 // 		  			console.log("created: "+created);
@@ -54,7 +155,7 @@ db.user.findOne({
 
 //searches for a specific card
 // unirest.get("https://omgvamp-hearthstone-v1.p.mashape.com/cards/search/archmage")
-// .header("X-Mashape-Key", "BYlN83YoMomshn1SwxA3vyZgQFJWp1PjsTTjsnNHH65lRXohE4")
+// .header("X-Mashape-Key", MASHAPE_HS_KEY)
 // .end(function (result) {
 //   //console.log(result.status, result.headers, result.body);
 //   result.body.forEach(function(card){
