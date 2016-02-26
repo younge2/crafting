@@ -1,0 +1,15 @@
+<div class="page-header">
+<h1>Tier</h1>
+</div>
+
+<p>Make new Deck</p>
+<form method="POST"  >
+	<input name="deckName" type="text" />
+	<button type="submit">Add to deck list</button>
+	</form>
+
+<% decks.forEach(function(deck, index){ %>
+	<p><%= deck.dataValues.name%> <a href="/decks/create/<%=deck.dataValues.id%>">Edit</a> </p> 
+
+
+ <%});%> 

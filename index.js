@@ -100,6 +100,32 @@ app.post('/signup', function(req,res) {
 
 });
 
+// app.get('/toCraft', function(req,res) {
+// 	var person = req.session.userId;
+// 	db.user.findById(person).then(function(user) {
+
+// 		user.getDecks().then(function(decks){
+// 			console.log(decks);
+// 			var idDecks = [];
+// 			decks.forEach(deck1,index){
+// 				//idDecks.push(deck.dataValues.id);
+// 				db.deck.find({
+// 					where:{
+// 						id: deck1.id
+// 					}
+// 				}).then(function(deck){
+// 					deck.getCards().then(function(cards){
+// 						cards.forEach(card1,index){
+// 							idDecks.push(card1.id)
+// 						}
+// 					});
+// 				});
+// 			}
+			
+// 		});
+// 	});
+// });
+
 
 
 

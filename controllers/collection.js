@@ -60,27 +60,30 @@ router.post("/", function(req, res) {
 			}
 		}).then(function(card){
 			console.log(card);
-			user.addCard(card);
+			user.addCard(card).then(function(wat) {
 
-			db.usersCards.find({
-				where:{
-					userId: user.id,
-					cardId: card.id
-				}
-			}).then(function(joined){
-				//console.log("GAHHHHH"+joined.counter);
-				if (joined.counter){
-					joined.increment('counter');
-					console.log("COUNTER!!!!: "+joined.counter);
-					res.redirect('collection');
-				} else {
-					joined.counter= 1;
-					joined.save().then(function(){
+
+
+				db.usersCards.find({
+					where:{
+						userId: user.id,
+						cardId: card.id
+					}
+				}).then(function(joined){
+					//console.log("GAHHHHH"+joined.counter);
+					if (joined.counter){
+						joined.increment('counter');
+						console.log("COUNTER!!!!: "+joined.counter);
 						res.redirect('collection');
-					});
-					console.log("COUNTER!!!!: "+joined.counter);
-				}
-				
+					} else {
+						joined.counter= 1;
+						joined.save().then(function(){
+							res.redirect('collection');
+						});
+						console.log("COUNTER!!!!: "+joined.counter);
+					}
+					
+				});
 			});
 
 		});

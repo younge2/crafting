@@ -1,14 +1,14 @@
 var db = require("./models");
 var unirest = require('unirest');
-
-//adds a card to a deck
+ 
+// //adds a card to a deck
 // db.deck.findById(1).then(function(deck) {
 
 // 	console.log(deck);
 // 	console.log ("DECKOOOOOO"+deck.dataValues.id);
 // 	db.card.findAll({
 // 		where:{
-// 			name: "Doomsayer"
+// 			name: "Ysera"
 // 		}
 // 	}).then(function(card){
 // 		console.log(card);

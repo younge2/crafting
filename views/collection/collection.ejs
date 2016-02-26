@@ -1,32 +1,63 @@
+<div class="page-header">
 <h1>Collection</h1>
+</div>
 <% var count=cards.length;%>
 
-
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Add Cards
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
 <div>
 <h2>Add Cards</h2>
 	<% cardArr.forEach(function(card, index){ %>
-	
+	<div class="well">
 	<p><%= card.name%>
 	<form method="POST" action="/collection">
 	<input name="cardName" type="hidden" value="<%= card.name%>"/>
-	<button type="submit">Add to collection</button>
+	<button type="submit" class="btn btn-success">Add to collection</button>
 	</form>
 	 </p>
+	 </div>
 
 
 	<%});%>
 </div>
-
+</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collection
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
 
 
 <div>
-<h2>Have Cards</h2>
+
  <% cards.forEach(function(card, index){ %>
  	
  
- 
+ <div class="well">
 <p><%= card.dataValues.name%>  <%= card.usersCards.dataValues.counter%></p> 
+</div>
 
 
  <%});%>
  </div>
+
+ </div>
+    </div>
+  </div>
+  </div>
