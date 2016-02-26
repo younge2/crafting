@@ -56,12 +56,14 @@ app.post('/', function(req, res) {
   var password = req.body.password;
   db.user.authenticate(username, password, function(err, user) {
     if (err) {
-      res.send(err);
+       req.flash('danger', err);
+      res.render('index.ejs', {alerts: req.flash()});
     } else if (user) {
       req.session.userId = user.id;
       res.redirect('/');
     } else {
-      res.send('user and/or password invalid');
+      req.flash('danger', 'User or Password is incorrect');
+      res.render('index.ejs', {alerts: req.flash()});
     }
   });
 });
@@ -111,7 +113,7 @@ app.get('/toCraft', function(req,res) {
   						id: card.cardId
   					}
   				}).then(function(cardIns){
-  					console.log("CARDINS"+cardIns);
+  					console.log(cardIns);
   					cardArr.push(cardIns);
   				});
   			});

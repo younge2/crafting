@@ -2,14 +2,27 @@
 <h1>Hearthstone Crafting Aide</h1>
 </div>
 
+
 <form method="POST" action="/" id="signIn">
+ <div class="form-group">
 <label>User Name</label>
 <input name="userName" id="uName" type="text"/>
+</div>
+ <div class="form-group">
 <label>password</label>
 <input name="password" id="uPass" type="password"/>
+</div>
 <button id="signButton" type="submit"  class="btn btn-primary">Sign In</button>
 </form>
 
 <form method="GET" action='/logout' id"logOut">
 <button id="outButton" class="btn btn-primary" type="submit">Log Out </button>
 </form>
+
+<% if (typeof alerts !== 'undefined') { %>
+  <% for (key in alerts) { %>
+    <% alerts[key].forEach(function(thisMsg) { %>
+      <div class="alert alert-<%= key %>"><%= thisMsg %></div>
+    <% }); %>
+  <% } %>
+<% } %>

@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<div>Current User: <%= currentUser.username %></div>
+
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
      <ul class="nav navbar-nav">
@@ -18,8 +18,10 @@
         <li><a href="/collection">Collection</a></li>
         <li><a href="/decks">Decks</a></li>
         <li><a href="/toCraft">Craft</a></li>
+        <p class="navbar-text">Signed in as <%= currentUser.username %> </p>
   </div>
 </nav>
+
 <%- body%>
 
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>

@@ -1,3 +1,8 @@
+
+<div class="page-header">
+<h1>Sign up </h1>
+</div>
+
 <% if (typeof alerts !== 'undefined') { %>
   <% for (key in alerts) { %>
     <% alerts[key].forEach(function(thisMsg) { %>
@@ -5,14 +10,19 @@
     <% }); %>
   <% } %>
 <% } %>
-<h1>Sign up </h1>
 
 <form method="POST" id="signUp">
+ <div class="form-group">
 	<label>Username: </label>
 	<input name="potUsername" type="text" />
+	</div>
+	 <div class="form-group">
 	<label>Password: </label>
 	<input name="potPassword" type="password" />
+	</div>
+	 <div class="form-group">
 	<label>Confirm Password: </label>
 	<input name="potPassword2" type="password" />
+	</div>
 	<button id="signupSub" type="submit">Sign Up </button>
 </form>
