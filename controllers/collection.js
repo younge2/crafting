@@ -38,7 +38,7 @@ router.get('/', function(req,res) {
 		db.user.findById(person).then(function(user){
 			user.getCards().then(function(cards){
 				console.log(cards[0].usersCards.dataValues.counter);
-				res.render('collection/collection.ejs',{cards: cards, cardArr: cardArr})
+				res.render('collection/collection.ejs',{cards: cards, cardArr: cardArr});
 					
 			});
 				
@@ -68,7 +68,7 @@ router.post("/", function(req, res) {
 					cardId: card.id
 				}
 			}).then(function(joined){
-				console.log("GAHHHHH"+joined.counter);
+				//console.log("GAHHHHH"+joined.counter);
 				if (joined.counter){
 					joined.increment('counter');
 					console.log("COUNTER!!!!: "+joined.counter);

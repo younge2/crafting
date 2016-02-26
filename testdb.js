@@ -1,6 +1,52 @@
 var db = require("./models");
 var unirest = require('unirest');
 
+//adds a card to a deck
+// db.deck.findById(1).then(function(deck) {
+
+// 	console.log(deck);
+// 	console.log ("DECKOOOOOO"+deck.dataValues.id);
+// 	db.card.findAll({
+// 		where:{
+// 			name: "Doomsayer"
+// 		}
+// 	}).then(function(card){
+// 		console.log(card);
+// 		console.log(card[0].dataValues.id);
+// 			deck.addCard(card, {counter: 0}).then(function(wat){	
+// 					db.decksCards.find({
+// 					where:{
+// 						deckId:deck.dataValues.id,
+// 						cardId: card[0].dataValues.id
+// 					}
+// 					}).then(function(joined){
+// 						console.log(joined);
+// 						joined.increment({counter: 2});
+// 						console.log("COUNTER!!!!: "+joined.counter);
+// 					});
+// 			});
+			
+		
+		
+
+// 	});
+
+// });
+
+//creates a deck
+// db.user.findOne({
+// 	where: {
+// 		username: "Solheim"
+// 	}
+// }).then(function(user) {
+// 	db.deck.create({
+// 		name: "Hypedafreeze"
+// 	}).then(function(deck){
+// 		user.addDeck(deck).then(function(wat){
+// 			console.log(wat);
+// 		})
+// 	})
+// });
 
 
 // //adds basic card set to join table
@@ -34,7 +80,7 @@ var unirest = require('unirest');
 
 // 	});
 	
-// });
+//  });
 
 
 
