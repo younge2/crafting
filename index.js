@@ -100,7 +100,28 @@ app.post('/signup', function(req,res) {
 
 });
 
-// app.get('/toCraft', function(req,res) {
+app.get('/toCraft', function(req,res) {
+	var person = req.session.userId;
+	var cardArr=[];
+	db.sequelize.query("SELECT \"decksCards\".\"cardId\" FROM \"usersDecks\" JOIN \"decksCards\" ON \"usersDecks\".\"deckId\"=\"decksCards\".\"deckId\" LEFT OUTER JOIN \"usersCards\" ON \"usersCards\".\"cardId\"=\"decksCards\".\"cardId\" WHERE \"usersDecks\".\"userId\"="+person+"AND \"usersCards\".id IS null").then(function(cards) {
+  // Results will be an empty array and metadata will contain the number of affected rows.
+  			cards[0].forEach(function(card,index){
+  				db.card.find({
+  					where:{
+  						id: card.cardId
+  					}
+  				}).then(function(cardIns){
+  					console.log("CARDINS"+cardIns);
+  					cardArr.push(cardIns);
+  				});
+  			});
+
+}).done(function(){
+
+console.log("CARD ARR"+cardArr[0]);
+res.render('toCraft.ejs',{cardArr: cardArr});
+});
+	
 // 	var person = req.session.userId;
 // 	db.user.findById(person).then(function(user) {
 
@@ -124,7 +145,7 @@ app.post('/signup', function(req,res) {
 			
 // 		});
 // 	});
-// });
+});
 
 
 

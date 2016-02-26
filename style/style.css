@@ -1,5 +1,16 @@
 body {
 	background-image: url(../images/lehB7.png);
 	background-repeat: repeat;
+	background-color: #013ADF;
 
+}
+
+#accordionCol {
+	width: 80%;
+	margin-left: 10%;
+}
+
+#accordionCre {
+	width: 80%;
+	margin-left: 10%;
 }
